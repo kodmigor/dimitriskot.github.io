@@ -1,4 +1,139 @@
-<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="stylesheet" href="css/normalize.css"><link rel="stylesheet" href="css/style.min.css"><title>Нямушка</title></head><body><main class="container"><section class="product"><h1 class="product__title">Ты сегодня покормил кота?</h1><form class="product__form" action="#" method="post"><div class="product__box"><div class="product__item card"><input class="card__input visually-hidden" type="checkbox" name="food" id="foiegras"><div class="card__wafer"><div class="card__image"></div></div><label class="card__box" for="foiegras"><span class="card__pretitle card__pretitle--default">Сказочное заморское яство </span><span class="card__pretitle card__pretitle--hover">Котэ не одобряет? </span><span class="card__title">Нямушка </span><span class="card__type">с фуа-гра</span> <span class="card__description"><span class="card__count">10 </span>порций<br>мышь в подарок </span><span class="card__weight-box"><span class="card__weight-count">0,5</span> <span class="card__weight">кг</span></span></label><p class="card__text card__text--default">Чего сидишь? Порадуй котэ,&nbsp;<label class="card__label card__label--text" for="foiegras">купи.</label></p><p class="card__text card__text--checked">Печень утки разварная с артишоками.</p><p class="card__text card__text--disabled">Печалька, с фуа-гра закончился.</p></div><div class="product__item card"><input class="card__input visually-hidden" type="checkbox" name="food" id="fish"><div class="card__wafer"><div class="card__image"></div></div><label class="card__box" for="fish"><span class="card__pretitle card__pretitle--default">Сказочное заморское яство </span><span class="card__pretitle card__pretitle--hover">Котэ не одобряет? </span><span class="card__title">Нямушка </span><span class="card__type">с рыбой</span> <span class="card__description"><span class="card__count">40&nbsp;</span>порций<br><span class="card__count">2&nbsp;</span>мыши в подарок </span><span class="card__weight-box"><span class="card__weight-count">2</span> <span class="card__weight">кг</span></span></label><p class="card__text card__text--default">Чего сидишь? Порадуй котэ,&nbsp;<label class="card__label card__label--text" for="fish">купи.</label></p><p class="card__text card__text--checked">Головы щучьи с чесноком да свежайшая сёмгушка.</p><p class="card__text card__text--disabled">Печалька, с рыбой закончился.</p></div><div class="product__item card"><input class="card__input visually-hidden" type="checkbox" name="food" id="chicken" disabled=""><div class="card__wafer"><div class="card__image"></div></div><label class="card__box" for="chicken"><span class="card__pretitle card__pretitle--default">Сказочное заморское яство </span><span class="card__pretitle card__pretitle--hover">Котэ не одобряет? </span><span class="card__title">Нямушка </span><span class="card__type">с курой</span> <span class="card__description"><span class="card__count">100&nbsp;</span>порций<br><span class="card__count">5&nbsp;</span>мышей в подарок<br>заказчик доволен </span><span class="card__weight-box"><span class="card__weight-count">5</span> <span class="card__weight">кг</span></span></label><p class="card__text card__text--default">Чего сидишь? Порадуй котэ,&nbsp;<label class="card__label card__label--text" for="chicken">купи.</label></p><p class="card__text card__text--checked">Филе из цыплят с трюфелями в бульоне.</p><p class="card__text card__text--disabled">Печалька, с курой закончился.</p></div></div></form></section></main><script>var cardBoxes = document.querySelectorAll(".card__box");
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/style.min.css">
+  <title>Нямушка</title>
+</head>
+
+<body>
+  <main class="container">
+    <section class="product">
+      <h1 class="product__title">
+        Ты сегодня покормил кота?
+      </h1>
+      <form class="product__form" action="#" method="post">
+        <div class="product__box">
+          <div class="product__item card">
+            <input class="card__input visually-hidden" type="checkbox" name="food" id="foiegras">
+            <div class="card__wafer">
+              <div class="card__image"></div>
+            </div>
+            <label class="card__box" for="foiegras">
+              <span class="card__pretitle card__pretitle--default">
+                Сказочное заморское яство
+              </span>
+              <span class="card__pretitle card__pretitle--hover">
+                Котэ не одобряет?
+              </span>
+              <span class="card__title">
+                Нямушка
+              </span>
+              <span class="card__type">с фуа-гра</span>
+              <span class="card__description">
+                <span class="card__count">10 </span>порций
+                <br>мышь в подарок
+              </span>
+              <span class="card__weight-box">
+                <span class="card__weight-count">0,5</span>
+                <span class="card__weight">кг</span>
+              </span>
+            </label>
+            <p class="card__text card__text--default">
+              Чего сидишь? Порадуй котэ,&nbsp;
+              <label class="card__label card__label--text" for="foiegras">купи.</label>
+            </p>
+            <p class="card__text card__text--checked">
+              Печень утки разварная с артишоками.
+            </p>
+            <p class="card__text card__text--disabled">
+              Печалька, с фуа-гра закончился.
+            </p>
+          </div>
+          <div class="product__item card">
+            <input class="card__input visually-hidden" type="checkbox" name="food" id="fish">
+            <div class="card__wafer">
+              <div class="card__image"></div>
+            </div>
+            <label class="card__box" for="fish">
+              <span class="card__pretitle card__pretitle--default">
+                Сказочное заморское яство
+              </span>
+              <span class="card__pretitle card__pretitle--hover">
+                Котэ не одобряет?
+              </span>
+              <span class="card__title">
+                Нямушка
+              </span>
+              <span class="card__type">с рыбой</span>
+              <span class="card__description">
+                <span class="card__count">40&nbsp;</span>порций
+                <br>
+                <span class="card__count">2&nbsp;</span>мыши в подарок
+              </span>
+              <span class="card__weight-box">
+                <span class="card__weight-count">2</span>
+                <span class="card__weight">кг</span>
+              </span>
+            </label>
+            <p class="card__text card__text--default">
+              Чего сидишь? Порадуй котэ,&nbsp;
+              <label class="card__label card__label--text" for="fish">купи.</label>
+            </p>
+            <p class="card__text card__text--checked">
+              Головы щучьи с чесноком да свежайшая сёмгушка.
+            </p>
+            <p class="card__text card__text--disabled">
+              Печалька, с рыбой закончился.
+            </p>
+          </div>
+          <div class="product__item card">
+            <input class="card__input visually-hidden" type="checkbox" name="food" id="chicken" disabled="">
+            <div class="card__wafer">
+              <div class="card__image"></div>
+            </div>
+            <label class="card__box" for="chicken">
+              <span class="card__pretitle card__pretitle--default">
+                Сказочное заморское яство
+              </span>
+              <span class="card__pretitle card__pretitle--hover">
+                Котэ не одобряет?
+              </span>
+              <span class="card__title">
+                Нямушка
+              </span>
+              <span class="card__type">с курой</span>
+              <span class="card__description">
+                <span class="card__count">100&nbsp;</span>порций
+                <br>
+                <span class="card__count">5&nbsp;</span>мышей в подарок
+                <br>заказчик доволен
+              </span>
+              <span class="card__weight-box">
+                <span class="card__weight-count">5</span>
+                <span class="card__weight">кг</span>
+              </span>
+            </label>
+            <p class="card__text card__text--default">
+              Чего сидишь? Порадуй котэ,&nbsp;
+              <label class="card__label card__label--text" for="chicken">купи.</label>
+            </p>
+            <p class="card__text card__text--checked">
+              Филе из цыплят с трюфелями в бульоне.
+            </p>
+            <p class="card__text card__text--disabled">
+              Печалька, с курой закончился.
+            </p>
+          </div>
+        </div>
+      </form>
+    </section>
+  </main>
+  <script>
+    var cardBoxes = document.querySelectorAll(".card__box");
     var cardInputes = document.querySelectorAll(".card__input");
     var cardLabels = document.querySelectorAll(".card__label");
 
@@ -30,4 +165,8 @@
           };
         };
       };
-    }</script></body></html>
+    }
+  </script>
+</body>
+
+</html>

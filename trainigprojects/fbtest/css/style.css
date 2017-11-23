@@ -193,10 +193,8 @@ input[type="radio"].visually-hidden {
   border-bottom: 4px solid #1698d9;
   border-bottom-left-radius: 11px;
   border-bottom-right-radius: 11px;
-  cursor: pointer; }
-
-.card__box:active {
-  background-color: none; }
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent; }
 
 .card__box::before {
   content: "";
