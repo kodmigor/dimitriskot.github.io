@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   <link rel="stylesheet" href="css/style.css">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-  <title>Keksobooking</title>
+  <title>Кексобукинг</title>
 </head>
 <body>
 
@@ -37,6 +37,7 @@
           <option value="flat">Квартира</option>
           <option value="house">Дом</option>
           <option value="bungalo">Сарай</option>
+          <option value="palace">Дворец</option>
         </select>
 
         <select name="housing-price" id="housing-price" class="map__filter">
@@ -85,13 +86,13 @@
   <div class="notice">
     <h2 class="notice__title">Ваше объявление</h2>
 
-    <form class="notice__form notice__form--disabled" method="post" action="https://js.dump.academy/keksobooking" enctype="multipart/form-data" autocomplete="off">
+    <form action="https://js.dump.academy/keksobooking" class="notice__form notice__form--disabled" method="post" enctype="multipart/form-data" autocomplete="off">
       <fieldset class="notice__header">
         <legend>Ваша фотография (для карты)</legend>
         <div class="notice__photo">
           <div class="upload">
             <div class="notice__preview">
-              <img src="img/muffin.png" alt="Аватар пользователя"  width="40" height="44">
+              <img src="img/muffin.png" alt="Аватар пользователя" width="40" height="44">
             </div>
             <input type="file" id="avatar">
             <label class="drop-zone" for="avatar">Загрузите или&nbsp;перетащите сюда фото</label>
@@ -102,12 +103,12 @@
 
       <fieldset class="form__element form__element--wide">
         <label for="title">Заголовок объявления</label>
-        <input id="title" name="title" type="text" placeholder="Милая, уютная квартирка в центре Токио" required minlength="30" maxlength="100">
+        <input id="title" name="title" type="text" placeholder="Милая, уютная квартирка в центре Токио" minlength="30" maxlength="100" required>
       </fieldset>
 
       <fieldset class="form__element form__element--wide">
         <label for="address">Адрес</label>
-        <input id="address" name="address" type="text" required readonly>
+        <input id="address" name="address" type="text" readonly>
       </fieldset>
 
       <fieldset class="form__element">
@@ -122,7 +123,7 @@
 
       <fieldset class="form__element">
         <label for="price">Цена за ночь, руб.</label>
-        <input id="price" name="price" type="number" placeholder="1000" required min="0" max="1000000">
+        <input id="price" name="price" type="number" placeholder="5000" min='1000' max="1000000" required>
       </fieldset>
 
       <fieldset class="form__element">
@@ -133,9 +134,9 @@
           <option value="14:00">После 14</option>
         </select>
         <select id="timeout" name="timeout" title="Time to go out">
-          <option value="12:00">Выезд до 12</option>
+          <option value="12:00" selected>Выезд до 12</option>
           <option value="13:00">Выезд до 13</option>
-          <option value="14:00" selected>Выезд до 14</option>
+          <option value="14:00">Выезд до 14</option>
         </select>
       </fieldset>
 
@@ -152,10 +153,7 @@
       <fieldset class="form__element">
         <label for="capacity">Количество мест</label>
         <select id="capacity" name="capacity">
-          <option value="3">для 3 гостей</option>
-          <option value="2">для 2 гостей</option>
           <option value="1" selected>для 1 гостя</option>
-          <option value="0">не для гостей</option>
         </select>
       </fieldset>
 
@@ -193,6 +191,8 @@
             <input type="file" id="images">
             <label for="images" class="drop-zone">Загрузите или&nbsp;перетащите сюда фото</label>
           </div>
+          <div id="user-images">
+          </div>
         </div>
       </fieldset>
 
@@ -207,7 +207,7 @@
 <footer class="footer container">
   <div class="center-wrapper">
     <section class="footer-logo">
-      Сделано в <a tabindex="1" href="https://htmlacademy.ru" class="footer-logo-link"><img src="img/ha-logo.png" class="footer-logo-image" width="130" alt="HTML Academy"/>HTML Academy</a> &copy; 2017
+      Сделано в <a tabindex="1" href="https://htmlacademy.ru/intensive/javascript" class="footer-logo-link"><img src="img/ha-logo.png" class="footer-logo-image" width="130" alt="HTML Academy">HTML Academy</a> &copy; 2018
     </section>
     <nav class="footer-social">
       <a href="https://twitter.com/htmlacademy_ru" class="footer-social-item footer-social-item-twitter" target="_blank" rel="nofollow">Twitter</a>
@@ -229,32 +229,27 @@
     <p class="popup__type-info">2 комнаты для 3 гостей</p>
     <p class="popup__check">Заезд после 14:00, выезд до 10:00</p>
     <ul class="popup__features">
-      <li class="feature feature--wifi"></li>
-      <li class="feature feature--dishwasher"></li>
-      <li class="feature feature--parking"></li>
-      <li class="feature feature--washer"></li>
-      <li class="feature feature--elevator"></li>
-      <li class="feature feature--conditioner"></li>
     </ul>
     <p class="popup__description">Великолепная квартира-студия в центре Токио. Подходит как туристам, так и бизнесменам. Квартира полностью укомплектована и недавно отремонтирована.</p>
     <ul class="popup__pictures">
-      <li><img src=""></li>
     </ul>
   </article>
 
   <button style="left: 200px; top: 400px;" class="map__pin"><img src="img/avatars/user07.png" width="40" height="40" draggable="false"></button>
 </template>
 
-<script src="js/backend.js"></script>
+<script src="js/variables.js"></script>
 <script src="js/constants.js"></script>
 <script src="js/util.js"></script>
-<script src="js/filter.js"></script>
-<script src="js/data.js"></script>
-<script src="js/card.js"></script>
-<script src="js/show-card.js"></script>
-<script src="js/pin.js"></script>
-<script src="js/map.js"></script>
-<script src="js/synchronize-fields.js"></script>
+<script src="js/ad-data.js"></script>
+<script src="js/pins.js"></script>
+<script src="js/ad-card.js"></script>
+<script src="js/user-pin.js"></script>
 <script src="js/form.js"></script>
+<script src="js/map.js"></script>
+<script src="js/backend.js"></script>
+<script src="js/ad-filter.js"></script>
+<script src="js/user-photos.js"></script>
+<script src="js/debounce.js"></script>
 </body>
 </html>

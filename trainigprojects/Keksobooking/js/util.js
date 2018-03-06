@@ -2,60 +2,89 @@
 
 (function () {
   // получение случайного элемента массива
-  var getRandomElement = function (array) {
-    var randomElement = array[Math.floor(Math.random() * array.length)];
+  var getRandomArrayElement = function (collection) {
+    var randomElement = collection[Math.floor(Math.random() * collection.length)];
     return randomElement;
-  };
-
-  // получение случайной длины массива
-  var getRandomArrayLength = function (array) {
-    var randomArrayLength = Math.ceil(Math.random() * array.length);
-    return randomArrayLength;
   };
 
   // получение случайного числа
   var getRandomNumber = function (count) {
-    var number = Math.ceil(Math.random() * count);
+    var number = Math.floor(Math.random() * count);
     return number;
   };
 
   // получение случайного числа из диапазона
   var getRandomNumberFromRange = function (min, max) {
-    var number = Math.floor(Math.random() * (max - min) + min);
+    var number = getRandomNumber(max + 1 - min) + min;
     return number;
   };
 
-  var formHandler = function (message) {
-    var formPopup = document.createElement('div');
-    formPopup.classList.add('form-popup');
-    formPopup.textContent = message;
-    document.body.insertAdjacentElement('afterbegin', formPopup);
-    var formButton = document.createElement('button');
-    formButton.classList.add('form-popup__button');
-    formButton.textContent = 'OK';
-    var closePopup = function () {
-      document.body.removeChild(formPopup);
-    };
-    formButton.addEventListener('click', closePopup);
-    formPopup.appendChild(formButton);
+  // получение случайного местонахождения
+  var getRandomLocation = function (coord) {
+    var randomLocation = {};
+    randomLocation.x = getRandomNumberFromRange(coord.minX, coord.maxX);
+    randomLocation.y = getRandomNumberFromRange(coord.minY, coord.maxY);
+    return randomLocation;
   };
 
-  var debounce = function (debouncedFunction) {
-    var lastTimeout;
-    if (lastTimeout) {
-      window.clearTimeout(lastTimeout);
+  // получение случайного массива из существующего
+  var getRandomArrayFromExisting = function (array) {
+    var newArray = array.slice();
+
+    function compareRandom() {
+      return Math.random() - 0.5;
     }
-    lastTimeout = window.setTimeout(function () {
-      debouncedFunction();
-    }, 1000);
+    newArray.sort(compareRandom);
+    newArray.length = getRandomNumberFromRange(1, array.length);
+    return newArray;
+  };
+
+  // функция переключения активного состояния элементов массива
+  var toggleDisabled = function (collection) {
+    collection.forEach(function (item) {
+      item.disabled = !item.disabled;
+    });
+  };
+
+  var getInfoPopup = function (message) {
+    var infoPopup = document.createElement('div');
+    infoPopup.classList.add('form-popup');
+    infoPopup.textContent = message;
+    document.body.insertAdjacentElement('afterbegin', infoPopup);
+    var infoPopupButton = document.createElement('button');
+    infoPopupButton.classList.add('form-popup__button');
+    infoPopupButton.textContent = 'OK';
+    var closePopup = function () {
+      document.body.removeChild(infoPopup);
+    };
+    infoPopupButton.addEventListener('click', closePopup);
+    infoPopup.appendChild(infoPopupButton);
+  };
+
+  // функция сравнения массивов
+  var compareCollections = function (collection, comparableCollection) {
+    var count = 0;
+    for (var i = 0; i < collection.offer.features.length; i++) {
+      for (var j = 0; j < comparableCollection.length; j++) {
+        if (collection.offer.features[i] === comparableCollection[j]) {
+          count++;
+        }
+      }
+    }
+    if (count === comparableCollection.length) {
+      return true;
+    }
+    return false;
   };
 
   window.util = {
-    getRandomElement: getRandomElement,
-    getRandomArrayLength: getRandomArrayLength,
+    getRandomArrayElement: getRandomArrayElement,
     getRandomNumber: getRandomNumber,
     getRandomNumberFromRange: getRandomNumberFromRange,
-    formHandler: formHandler,
-    debounce: debounce
+    getRandomLocation: getRandomLocation,
+    getRandomArrayFromExisting: getRandomArrayFromExisting,
+    toggleDisabled: toggleDisabled,
+    getInfoPopup: getInfoPopup,
+    compareCollections: compareCollections
   };
 })();
